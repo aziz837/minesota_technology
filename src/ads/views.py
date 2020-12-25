@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .model import *
+from django.shortcuts import render, get_object_or_404
+from .models import *
+from django.http import HttpResponse
 
 def ads(request):
-    return render(request, 'ads/ads.html', {})
+    return render(request, 'main/index.html', {})
