@@ -3,4 +3,16 @@ from .models import *
 from django.http import HttpResponse
 
 def ads(request):
-    return render(request, 'main/index.html', {})
+	products = Product.objects.all()
+	partners = Partners.objects.all()
+	contacts = Contact.objects.get(pk=1)
+	carts = Cart.objects.all()
+	info = Info.objects.get(pk=1)
+	context= {
+		'products':products,
+		'partners':partners,
+		'contacts':contacts,
+		'info': info,
+		'carts':carts
+		}
+	return render(request, 'main/index.html', context )

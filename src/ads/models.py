@@ -21,7 +21,7 @@ class Product(models.Model):
 
 class Partners(models.Model):
     name = models.CharField(max_length=200)
-    logo = models.ImageField(max_length=200, upload_to='product', null=True)
+    logo = models.ImageField(max_length=200, upload_to='partners', null=True)
     created_at = models.DateTimeField(auto_now=True, blank=True)
     update_at = models.DateTimeField(auto_now=True, blank=True)
 
@@ -56,7 +56,7 @@ class Contact(models.Model):
 
 class Cart(models.Model):
     name = models.CharField(max_length=500)
-    photo = models.ImageField(max_length=200, upload_to='product', null=True)
+    photo = models.ImageField(max_length=200, upload_to='cart', null=True)
     created_at = models.DateTimeField(auto_now=True, blank=True)
     update_at = models.DateTimeField(auto_now=True, blank=True)
 
@@ -86,3 +86,20 @@ class Info(models.Model):
     class Meta:
         verbose_name = "Malumot"
         verbose_name_plural = "Malumotlar"
+
+
+class SocialMedia(models.Model):
+    name = models.CharField(max_length=200)
+    logo = models.ImageField(max_length=200, upload_to='logo', null=True)
+    created_at = models.DateTimeField(auto_now=True, blank=True)
+    update_at = models.DateTimeField(auto_now=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def slug(self):
+        return slugify(self.name)
+
+    class Meta:
+        verbose_name = "Xamkor"
+        verbose_name_plural = "Xamkorlar"

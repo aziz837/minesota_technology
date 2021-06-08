@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+  <header>
+      <div class="container">
+        <a href="#" class="logo">MINNESOTA TECHNOLOGY</a>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+<!--          <li><a href="#services">Services</a></li>-->
+          <li><a href="#products">Products</a></li>
+          <li><a href="#partners">Partners</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+        <ul class="lang">
+          <li><a href="index.html">En</a></li>
+          <li><a href="/ru/">Ru</a></li>
+        </ul>
+        <button class="mn"><i></i></button>
+      </div>
+  </header>
+  <div class="slide" id="home">
+    <div class="slider">
+      <div class="slider_item" style="background-image:url({% static 'img/tobias-van-schneider-OGj-lUI9TBQ-unsplash.jpg' %})">
+        <div class="container">
+          <div class="slider_item-caption">
+
+            <b>MINNESOTA <br> TECHNOLOGY</b>
+            <i>We will cope with the task! </i>
+          </div>
+          <div class="slider_item-nav">
+            <b>Besides the rolled <br> metal, we produce <br> steelworks</b>
+            <div class="bottom">
+              <div class="nav">
+                <button class="slickprev"><i class="fa fa-angle-left"></i></button>
+                <b><span class="blue">1</span>/4</b>
+                <button class="slicknext"><i class="fa fa-angle-right"></i></button>
+              </div>
+<!--              <a href="#" class="more">more</a>-->
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about" id="about">
+    <div class="container">
+      <div class="btitle">About our Company</div>
+      <p>{{ info.info }} </p>
+      <a href="#" class="more">more</a>
+      <div class="about_slide">
+        <div class="about_slide-title">{{ info.description }}
+        </div>
+       
+        <div class="about_slide-list">
+           
+          <div class="about_slide-list-item">
+            {% for cart in carts %}
+            <div class="box">
+              <img src="{% static 'img/shed.svg' %}" alt="">
+              {{ cart.name }}
+            </div>
+               {% endfor %}
+          </div>
+
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  <div class="partners" id="partners">
+    <div class="container">
+      <div class="btitle">Partners</div>
+      <div class="partners_list">
+        {% for partner in partners %}
+        <div class="partners_list-item">
+          <img src="{{ partner.logo.url }}" alt="">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="product" id="products">
+    <div class="container">
+      <div class="btitle">Products</div>
+      <div class="product_list">
+         {% for product in products %}
+        <div class="product_list-item">
+          <div class="product_list-item-img" style="background-image: url({{ product.photo.url }})"></div>
+          <div class="product_list-item-body">
+            <a href="#">{{ product.name }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="s3"></div>
+      <div class="s4"></div>
+    </div>
+    <div class="s5"></div>
+  </div>
+  <div class="quest" id="contacts">
+    <div class="container">
+      <div class="quest_text">
+        If you have any question, <br>
+        please write to <b>{{ contacts.email }} </b>
+        
+      </div>
+      <div class="s2"></div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="left">
+        Suite 102, Ground Floor, Blake Building, Corner Eyre & <br> Hutson Streets,Belize City, Belize
+      </div>
+      <div class="center">
+        <b>MINNESOTA <br> TECHNOLOGY LTD</b>
+        Copyright @ 2019. Developed by MD.uz
+      </div>
+      <ul class="social">
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+
+{% endblock content %}

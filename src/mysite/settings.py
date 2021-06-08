@@ -1,9 +1,10 @@
-import environ
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, True)
-)
-environ.Env.read_env()
+# import environ
+# env = environ.Env(
+#     # set casting, default value
+#     DEBUG=(bool, True)
+# )
+# environ.Env.read_env()
+
 """
 Django settings for mysite project.
 
@@ -29,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '84uqd+g-5-#4aem!%)(pkic5w(m#fg(yf82ie)dw%t+xceha8*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -80,17 +81,22 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': env('dbname'),
+#         'USER': env('dbuser'),
+#         'PASSWORD': env('dbpassword'),
+#         'HOST': env('dbhost'),
+#         'PORT': env('dbport'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env('dbname'),
-        'USER': env('dbuser'),
-        'PASSWORD': env('dbpassword'),
-        'HOST': env('dbhost'),
-        'PORT': env('dbport'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -136,3 +142,4 @@ MEDIA_ROOT = BASE_DIR / "media"
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+# print(STATICFILES_DIRS)
